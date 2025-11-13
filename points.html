@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Coffee City — Pontos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><a href="index.html">Coffee City</a></div>
+    <nav class="topnav">
+      <a href="points.html" class="btn small">Pontos</a>
+      <a href="profile.html" class="avatar">JC</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Pontos Sustentáveis</h1>
+    <div class="cards">
+      <div class="card">
+        <div class="muted">Total</div>
+        <div class="big" id="points-total">0</div>
+        <p class="muted small">Ganha pontos usando copo reutilizável e pedindo pelo app.</p>
+      </div>
+      <div class="card">
+        <div class="muted">Recompensas</div>
+        <button class="btn full" onclick="redeem(50,'Café grátis')">50 pts — Café grátis</button>
+        <button class="btn full outline" onclick="redeem(100,'20% de desconto')">100 pts — Desconto</button>
+      </div>
+    </div>
+
+    <div id="points-history" class="mt"></div>
+  </main>
+
+  <nav class="bottombar">
+    <a href="index.html">🏠 Home</a>
+    <a href="menu.html">☕ Menu</a>
+    <a href="cart.html">🛒 Carrinho</a>
+    <a href="community.html">🪴 Comunidade</a>
+    <a href="profile.html">👤 Perfil</a>
+  </nav>
+
+  <script src="script.js"></script>
+  <script>renderPoints()</script>
+</body>
+</html>

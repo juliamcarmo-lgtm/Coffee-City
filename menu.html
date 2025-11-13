@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Coffee City — Menu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><a href="index.html">Coffee City</a></div>
+    <nav class="topnav">
+      <a href="points.html" class="btn small">Pontos</a>
+      <a href="profile.html" class="avatar">JC</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="page-header">
+      <h1>Cardápio</h1>
+      <a href="cart.html" class="link small" id="cart-count">Ver carrinho (0)</a>
+    </div>
+
+    <div id="menu-grid" class="grid"></div>
+  </main>
+
+  <nav class="bottombar">
+    <a href="index.html">🏠 Home</a>
+    <a href="menu.html">☕ Menu</a>
+    <a href="cart.html">🛒 Carrinho</a>
+    <a href="community.html">🪴 Comunidade</a>
+    <a href="profile.html">👤 Perfil</a>
+  </nav>
+
+  <script src="script.js"></script>
+  <script>renderMenu(); updateCartCount()</script>
+</body>
+</html>

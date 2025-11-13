@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Coffee City — Comunidade</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><a href="index.html">Coffee City</a></div>
+    <nav class="topnav">
+      <a href="points.html" class="btn small">Pontos</a>
+      <a href="profile.html" class="avatar">JC</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Comunidade Verde</h1>
+    <div id="posts-area"></div>
+    <form id="post-form" onsubmit="createPost(event)">
+      <textarea id="post-text" placeholder="Compartilhe uma dica ou evento..." required></textarea>
+      <button class="btn full">Publicar</button>
+    </form>
+  </main>
+
+  <nav class="bottombar">
+    <a href="index.html">🏠 Home</a>
+    <a href="menu.html">☕ Menu</a>
+    <a href="cart.html">🛒 Carrinho</a>
+    <a href="community.html">🪴 Comunidade</a>
+    <a href="profile.html">👤 Perfil</a>
+  </nav>
+
+  <script src="script.js"></script>
+  <script>renderCommunity()</script>
+</body>
+</html>

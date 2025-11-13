@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Coffee City — Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Coffee City</div>
+    <nav class="topnav">
+      <a href="points.html" class="btn small">Pontos</a>
+      <a href="profile.html" class="avatar">JC</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Seu café, seu momento, seu planeta.</h1>
+        <p>App da Coffee City — sustentabilidade + praticidade.</p>
+        <div class="hero-actions">
+          <a class="btn" href="menu.html">Fazer Pedido</a>
+          <a class="btn outline" href="community.html">Comunidade Verde</a>
+        </div>
+      </div>
+      <img class="hero-img" src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800&q=60" alt="café">
+    </section>
+
+    <section>
+      <h2>Sugestões do dia</h2>
+      <div id="suggestions" class="grid"></div>
+    </section>
+  </main>
+
+  <nav class="bottombar">
+    <a href="index.html">🏠 Home</a>
+    <a href="menu.html">☕ Menu</a>
+    <a href="cart.html">🛒 Carrinho</a>
+    <a href="community.html">🪴 Comunidade</a>
+    <a href="profile.html">👤 Perfil</a>
+  </nav>
+
+  <script src="script.js"></script>
+  <script>renderSuggestions()</script>
+</body>
+</html>
