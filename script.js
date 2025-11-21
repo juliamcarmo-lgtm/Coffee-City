@@ -1,11 +1,49 @@
 // Coffee City — script.js (simulação sem servidor)
 // Dados iniciais (mock)
+
 const MENU = [
-  {id:1, name:'Espresso Clássico', price:6.5, eco:true, img:'https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800&q=60'},
-  {id:2, name:'Cappuccino Vegano', price:10.0, eco:true, img:'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=60'},
-  {id:3, name:'Cold Brew', price:12.0, eco:false, img:'https://images.unsplash.com/photo-1525909002-0c6f7b6d3b63?w=800&q=60'},
-  {id:4, name:'Toast Integral', price:8.0, eco:true, img:'https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=60'}
+  // -------------------------
+  // CLÁSSICOS
+  // -------------------------
+  {id:1, name:'Espresso', price:6.5, eco:false, img:'https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800&q=60'},
+  {id:2, name:'Café Coado', price:5.0, eco:false, img:'https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?w=800&q=60'},
+  {id:3, name:'Pingado', price:6.0, eco:false, img:'https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?w=800&q=60'},
+  {id:4, name:'Café Americano', price:7.0, eco:false, img:'https://images.unsplash.com/photo-1498804103079-a6351b050096?w=800&q=60'},
+
+  // -------------------------
+  // COM LEITE
+  // -------------------------
+  {id:5, name:'Cappuccino', price:10.0, eco:false, img:'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=60'},
+  {id:6, name:'Latte', price:9.5, eco:false, img:'https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=800&q=60'},
+  {id:7, name:'Mocha', price:12.0, eco:false, img:'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=60'},
+  {id:8, name:'Macchiato', price:8.5, eco:false, img:'https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=800&q=60'},
+
+  // -------------------------
+  // GELADOS
+  // -------------------------
+  {id:9, name:'Iced Coffee', price:9.0, eco:false, img:'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=60'},
+  {id:10, name:'Frappuccino Caseiro', price:13.0, eco:false, img:'https://images.unsplash.com/photo-1521302080391-cb1f1c6a4c7b?w=800&q=60'},
+  {id:11, name:'Cold Brew', price:12.0, eco:false, img:'https://images.unsplash.com/photo-1525909002-0c6f7b6d3b63?w=800&q=60'},
+
+  // -------------------------
+  // ESPECIAIS
+  // -------------------------
+  {id:12, name:'Caramelo Latte', price:12.5, eco:false, img:'https://images.unsplash.com/photo-1521302080391-cb1f1c6a4c7b?w=800&q=60'},
+  {id:13, name:'Baunilha Latte', price:12.5, eco:false, img:'https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=800&q=60'},
+  {id:14, name:'Café com Canela', price:7.5, eco:false, img:'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=60'},
+  {id:15, name:'Café com Leite Vegetal', price:10.0, eco:true, img:'https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=60'},
+
+  // -------------------------
+  // SUSTENTÁVEIS
+  // -------------------------
+  {id:16, name:'Café Orgânico', price:8.5, eco:true, img:'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=60'},
+  {id:17, name:'Café Agroflorestal', price:9.5, eco:true, img:'https://images.unsplash.com/photo-1525909002-0c6f7b6d3b63?w=800&q=60'},
+  {id:18, name:'Café de Reflorestamento', price:10.5, eco:true, img:'https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800&q=60'}
 ];
+
+// ---------------------------
+// FUNÇÕES GERAIS
+// ---------------------------
 
 function $qs(sel){ return document.querySelector(sel) }
 function $qa(sel){ return Array.from(document.querySelectorAll(sel)) }
@@ -21,7 +59,10 @@ function updateCartCount(){
   if(el) el.textContent = `Ver carrinho (${count})`;
 }
 
-// Render menu items
+// ---------------------------
+// RENDERIZAR MENU
+// ---------------------------
+
 function renderMenu(){
   const grid = document.getElementById('menu-grid');
   if(!grid) return;
@@ -50,7 +91,10 @@ function renderMenu(){
   updateCartCount();
 }
 
-// Suggestions on home
+// ---------------------------
+// SUGESTÕES
+// ---------------------------
+
 function renderSuggestions(){
   const container = document.getElementById('suggestions');
   if(!container) return;
@@ -70,7 +114,10 @@ function renderSuggestions(){
   });
 }
 
-// Cart functions
+// ---------------------------
+// CARRINHO
+// ---------------------------
+
 function addToCart(id){
   const item = MENU.find(m=>m.id===id);
   if(!item) return;
@@ -169,11 +216,13 @@ function confirmOrder(){
   renderCart();
   updateCartCount();
   alert('Pedido concluído! Você ganhou '+earned+' pts 🌱');
-  // redirect to points page
   window.location.href = 'points.html';
 }
 
-// Points
+// ---------------------------
+// PONTOS
+// ---------------------------
+
 function renderPoints(){
   const el = document.getElementById('points-total');
   if(el) el.textContent = getPoints();
@@ -197,8 +246,17 @@ function redeem(cost, name){
   alert('Resgatado: '+name);
 }
 
-// Community
-function getPosts(){ return JSON.parse(localStorage.getItem('cc_posts')||JSON.stringify([{id:1,user:'María',text:'Oficina de compostagem sábado 10h!',likes:4},{id:2,user:'Lucas',text:'Troca de copos reutilizáveis amanhã :)',likes:2}])) }
+// ---------------------------
+// COMUNIDADE
+// ---------------------------
+
+function getPosts(){ 
+  return JSON.parse(localStorage.getItem('cc_posts')||JSON.stringify([
+    {id:1,user:'María',text:'Oficina de compostagem sábado 10h!',likes:4},
+    {id:2,user:'Lucas',text:'Troca de copos reutilizáveis amanhã :)',likes:2}
+  ])) 
+}
+
 function setPosts(p){ localStorage.setItem('cc_posts', JSON.stringify(p)) }
 
 function renderCommunity(){
@@ -244,7 +302,10 @@ function likePost(id){
   renderCommunity();
 }
 
-// Profile
+// ---------------------------
+// PERFIL
+// ---------------------------
+
 function renderProfile(){
   const nameEl = document.getElementById('user-name');
   const levelEl = document.getElementById('user-level');
@@ -252,6 +313,9 @@ function renderProfile(){
   if(levelEl) levelEl.textContent = (localStorage.getItem('cc_user_level')||'Ouro Verde') + ' • ' + getPoints() + ' pts';
 }
 
-// Init helpers
+// ---------------------------
+// INIT
+// ---------------------------
+
 updateCartCount();
 renderPoints();
